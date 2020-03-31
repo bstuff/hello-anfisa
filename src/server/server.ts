@@ -5,6 +5,7 @@ import express from 'express';
 // @ts-ignore
 import morgan from 'morgan';
 
+import { aliceRouter } from '../alice';
 import { frontendRouter } from '../frontend';
 
 export const server = express();
@@ -15,3 +16,4 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(express.static(appRoot.resolve('/dist/frontend')));
 
 server.use('/', frontendRouter);
+server.use('/alice/v1.0', aliceRouter);

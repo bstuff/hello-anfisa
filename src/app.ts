@@ -10,6 +10,8 @@ const httpServer = server.listen(3000, () => {
 
 const websocketServer = createWebsocketServer(httpServer);
 
+global.__devices = [];
+
 websocketServer.on('connection', (ws) => {
   const deviceImpl = new WebAC({ websocket: ws });
 
