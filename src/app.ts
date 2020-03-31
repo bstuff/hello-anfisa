@@ -1,3 +1,4 @@
+import { WebAC } from './devices';
 import { server } from './server';
 import { createWebsocketServer } from './websocketServer';
 
@@ -9,3 +10,13 @@ const httpServer = server.listen(3000, () => {
 
 const websocketServer = createWebsocketServer(httpServer);
 
+websocketServer.on('connection', (ws) => {
+  const deviceImpl = new WebAC({ websocket: ws });
+
+  setTimeout(() => {
+    deviceImpl.off();
+  }, 2000);
+  setTimeout(() => {
+    deviceImpl.on();
+  }, 5000);
+});

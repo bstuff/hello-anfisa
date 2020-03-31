@@ -7,6 +7,7 @@ import { AirFlow } from './AirFlow';
 import { Box } from './Box';
 import { Controls } from './Controls';
 import { withState } from './withState';
+import { withWebsocket } from './withWebsocket';
 
 export const AirConditioner: FunctionComponent<Props> = (props) => {
   const { state, onSetOn, onSetOff, onChangeState } = props;
@@ -44,7 +45,7 @@ export const AirConditioner: FunctionComponent<Props> = (props) => {
 
 export const AirConditionerContainer = pipe(
   //
-  // withWebsocket(),
+  withWebsocket(),
   withState(),
 )(AirConditioner);
 
