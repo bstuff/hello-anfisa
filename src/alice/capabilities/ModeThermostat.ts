@@ -25,7 +25,7 @@ export class ModeThermostat extends BaseCapability implements CapabilityInterfac
 
   state$ = new BehaviorSubject<ModeThermostatValue>(ModeThermostatValue.cool);
 
-  constructor(observable: Observable<ModeThermostatValue>, opts: Partial<ConstructorOptions> = {}) {
+  constructor(observable: Observable<ModeThermostatValue>, opts: Partial<ConstructorOptions>) {
     super();
 
     const options = {

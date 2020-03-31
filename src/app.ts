@@ -1,3 +1,4 @@
+import { AliceWebAC } from './alice';
 import { WebAC } from './devices';
 import { server } from './server';
 import { createWebsocketServer } from './websocketServer';
@@ -15,10 +16,5 @@ global.__devices = [];
 websocketServer.on('connection', (ws) => {
   const deviceImpl = new WebAC({ websocket: ws });
 
-  setTimeout(() => {
-    deviceImpl.off();
-  }, 2000);
-  setTimeout(() => {
-    deviceImpl.on();
-  }, 5000);
+  global.__devices = [new AliceWebAC(deviceImpl)];
 });
