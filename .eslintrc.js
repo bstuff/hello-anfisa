@@ -1,17 +1,99 @@
 const path = require('path');
 
 module.exports = {
-  extends: ['./.eslintrc.base'], // no time to merge
-  plugins: ['react'],
+  extends: ['xo', 'plugin:prettier/recommended'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'import', 'react'],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
   env: {
     browser: false,
     node: true,
   },
   rules: {
     'no-console': 'off',
-    'new-cap': ["error", { "capIsNewExceptions": ["Router"] }],
+
+    // CodeStyle
+    'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
+    'one-var': 'error',
+    camelcase: 'off',
+    'dot-notation': 'error',
+    'padded-blocks': 'off',
+    'spaced-comment': 'off',
+    'no-inline-comments': 'off',
+    'max-nested-callbacks': 'off',
+    'newline-before-return': 'warn',
+
+    // Complexity
+    'max-depth': ['error', 4],
+    'max-params': ['error', 5],
+
+    // Practices
+    'no-empty': 'error',
+    'no-console': 'error',
+    'no-eq-null': 'error',
+    'no-await-in-loop': 'off',
+    'capitalized-comments': 'off',
+    eqeqeq: ['error', 'allow-null'],
+    'wrap-iife': ['error', 'any'],
+    'no-implicit-coercion': [
+      'error',
+      {
+        number: false,
+        boolean: false,
+      },
+    ],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+      },
+    ],
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+      },
+    ],
+    'no-multi-assign': 'off',
+    'valid-jsdoc': [
+      'error',
+      {
+        prefer: {
+          return: 'returns',
+        },
+        preferType: {
+          string: 'String',
+          object: 'Object',
+          number: 'Number',
+          boolean: 'Boolean',
+        },
+        requireReturn: false,
+        requireParamDescription: false,
+        requireReturnDescription: false,
+      },
+    ],
+    'no-warning-comments': 'off',
+
+    '@typescript-eslint/no-unused-vars': 'off',
+    'import/no-default-export': 'error',
+    'import/order': [
+      'warn',
+      {
+        groups: [['builtin', 'external', 'internal'], 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+
     'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error'
+    'react/jsx-uses-vars': 'error',
   },
   overrides: [
     {
