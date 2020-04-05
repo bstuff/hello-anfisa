@@ -21,7 +21,7 @@ Callback URL: https://oauth.yandex.ru/verification_code
 - Go to https://dialogs.yandex.ru/developer, click create dialog and check smart home dialog
 - Before you can test your skill you must fill all required fields
 - ...even dialog icon lol :)
-- Endpoint URL: `https://<your-subdomain>.serverless.social/alice`. Endpoint must be https://. This will be localtunnel url that we'll create later.
+- Endpoint URL: `https://<your-subdomain>.ngrok.io/alice`. Endpoint must be https://. This will be localtunnel url that we'll create later.
 - fill authorization credentials:
 
 ```text
@@ -34,19 +34,19 @@ Token endpoint: https://oauth.yandex.ru/token
 #### 3. start localtunnel to your pc
 
 ```bash
-npm run tunnel -- --subdomain cool-monkey-87
+npm run tunnel
 ```
 
-Use some random unique url. So Endpoint URL in step 2 must be `https://cool-monkey-87.serverless.social/alice`
+Pick up domain from console. So Endpoint URL in step 2 must be `https://<your-subdomain>.ngrok.io/alice`
 
 #### 4. launch app
 
 ```bash
 npm i
-DEBUG="app:*" npm run dev
+npm run dev
 ```
 
-Site must be available on public host `https://cool-monkey-87.serverless.social/alice` but to work locally we can use `http://localhost:3000`
+Site must be available on public host `https://<your-subdomain>.ngrok.io/alice` but to work locally we can use `http://localhost:3000`
 
 Open `http://localhost:3000` and we're ready to go!
 

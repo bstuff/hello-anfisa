@@ -38,8 +38,8 @@ export class AliceWebAC implements DeviceInterface {
     Object.assign(this, {
       id: 'alice222',
       type: DeviceType.AC,
-      name: 'Веб-кондей',
-      room: 'Гостиная',
+      name: 'Кондиционер',
+      room: 'Тестовая',
       capabilities: {
         power: new OnOff(this._acImpl.state$.pipe(pluck('power'))),
         targetTemperature: new RangeTemperature(
