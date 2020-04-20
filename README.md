@@ -13,7 +13,7 @@
 ```text
 ID: 46b4112266ea647729cc03b8e8ea60ff
 Пароль: 0650438ca8e0f1c4410a44e5b903b0a6
-Callback URL: https://oauth.yandex.ru/verification_code
+Callback URL: https://social.yandex.net/broker/redirect
 ```
 
 #### 2. create smart home dialog
